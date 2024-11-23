@@ -1,12 +1,14 @@
-<!doctype html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>HOME</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css">
-<link type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js">
-<link rel="stylesheet" href="css/Untitled-2.css">
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css">
+    <link rel="stylesheet" href="css/ar.css">
 </head>
 <body>
 	<header class="he">
@@ -17,7 +19,7 @@
             <div class="menu-content">
                 <ul>
                     <li>
-                        <a href="index.html">メインメニュー</a>
+                        <a href="index1.html">メインメニュー</a>
                     </li>
                     <li>
                         <a href="heya.html">展示モデル紹介</a>
@@ -26,46 +28,63 @@
                         <a href="zikosyoukai.html">制作メンバー紹介</a>
                     </li>
                     <li>
-                        <a href="texs.html">AR部屋</a>
+                        <a href="index.html">AR部屋</a>
                     </li>
                 </ul>
             </div>
             <!--ここまでメニュー-->
         </div>
     </header>
-	<div class="header">
 
-<!--Content before waves-->
-<div class="inner-header flex">
-<!--Just the logo.. Don't mind this-->
+    <a-scene mindar-image="imageTargetSrc: mind/targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+          <a-asset-item id="bearModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/band-example/bear/scene.gltf"></a-asset-item>
+          <a-asset-item id="raccoonModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/band-example/raccoon/scene.gltf"></a-asset-item>
+          <a-asset-item id="apple" src="3D/apple.glb"></a-asset-item>
+          <a-asset-item id="wolf" src="3D/Wolf-Blender-2.82a.glb"></a-asset-item>
+          <a-asset-item id="panpukin" src="3D/TRL!.glb"></a-asset-item>
+          <a-asset-item id="tostre" src="3D/tostre.glb"></a-asset-item>
+          <a-asset-item id="whiteboard" src="3D/whiteboard2.glb"></a-asset-item>
+          <a-asset-item id="doragon" src="3D/doragon.glb"></a-asset-item>
+          <a-asset-item id="earth" src="3D/earth.glb"></a-asset-item>
+          <a-asset-item id="spider" src="3D/spider.gltf"></a-asset-item>
 
-<h1>AR博物館</h1>
-</div>
+        </a-assets>
+  
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+  
 
-<!--Waves Container-->
-<div>
-<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-<defs>
-<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-</defs>
-<g class="parallax">
-<use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-<use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-<use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-<use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-</g>
-</svg>
-</div>
-<!--Waves end-->
+     	<a-entity mindar-image-target="targetIndex: 0">
+        	<a-gltf-model rotation="90 0 0 " position="0 -0.25 0" scale="0.1 0.1 0.1" src="#raccoonModel" animation-mixer>
+      	</a-entity>
+     	 <a-entity mindar-image-target="targetIndex: 1">
+        	<a-gltf-model rotation="90 0 0 " position="0 -0.25 0" scale="0.1 0.1 0.1" src="#bearModel" animation-mixer>
+      	</a-entity>
+        <a-entity mindar-image-target="targetIndex: 2">
+            <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="5 5 5" src="#apple" animation-mixer>
+          </a-entity>
+          <a-entity mindar-image-target="targetIndex: 3">
+            <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="1 1 1" src="#wolf" animation-mixer>
+          </a-entity>
+          <a-entity mindar-image-target="targetIndex: 4">
+            <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="1 1 1" src="#panpukin" animation-mixer>
+          </a-entity>
+          <a-entity mindar-image-target="targetIndex: 5">
+            <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="5 5 5" src="#tostre" animation-mixer>
+          </a-entity>
+          <a-entity mindar-image-target="targetIndex: 6">
+            <a-gltf-model rotation="90 0 0 " position="0 -0.25 0" scale="1 1 1" src="#whiteboard" animation-mixer>
+          </a-entity>
+          <a-entity mindar-image-target="targetIndex: 7">
+            <a-gltf-model rotation="45 0 0 " position="0 0 0" scale="0.05 0.05 0.05" src="#doragon" animation-mixer>
+          </a-entity>
+          <a-entity mindar-image-target="targetIndex: 8">
+            <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="0.05 0.05 0.05" src="#earth" animation-mixer>
+          </a-entity>
+          <a-entity mindar-image-target="targetIndex: 9">
+            <a-gltf-model rotation="90 0 0 " position="0 0 0" scale="1 1 1" src="#spider" animation-mixer>
+          </a-entity>
+      </a-scene>
+</body>
+</html>
 
-</div>
-<!--Header ends-->
-
-<!--Content starts-->
-<!--Content ends-->
-<main>
-		<h1 class="n_1">制作物紹介</h1>
-		<h3 class="ziko">初めまして、今回文化祭でAR博物館をやらせていただく桑野　樹希です。是非楽しんで行ってください。</h3>
-	</div>
-</main>
